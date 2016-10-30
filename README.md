@@ -30,3 +30,8 @@ Então podemos converter elas da seguinte forma:
 <input type="text" placeholder="04864713901" class="atom-cpf" onBlur="validate" required >
 ```
 
+```js
+var validate = require('atom-cpf-validate')
+var atom = document.querySelector('.atom-cpf')
+atom.addEventListener('blur', validate)
+```
