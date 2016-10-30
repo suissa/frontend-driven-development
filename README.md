@@ -29,3 +29,4 @@ Então podemos converter elas da seguinte forma:
 ```html
 <input type="text" placeholder="04864713901" class="atom-cpf" onBlur="validate" required >
 ```
+
