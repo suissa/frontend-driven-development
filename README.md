@@ -1,4 +1,4 @@
-# frontend-driven-development
+# frontend driven development
 
 Vamos do front até o banco e vice-versa.
 
@@ -64,3 +64,30 @@ config = {
   }
 }
 ```
+
+Porém ele ainda está incompleto pois se quisermos que esse input inicie desabilitado não temos como definir isso, então podemos adicionar uma propriedade `state` a qual também será uma classe no componente no *Frontend*.
+
+Na minha metodologia eu uso apenas **2 classes** por elemento, uma para identificar o componente e outra para o seu estado, a classe de estado é única que pode ser modificada mediante a mudança de estado do componente, por exemplo: `validate-success` e `validate-error`.
+
+Então deixaremos nossa configuração assim:
+
+
+```js
+const name = 'cpf'
+const type = String
+const event = 'blur'
+const validate = require('atom-cpf-validate')
+const state = 'enable'
+
+config = {
+  name,
+  type,
+  state,
+  validator: {
+    validate,
+    event
+  }
+}
+```
+
+Porém precisamos definir quais são os possíveis estados de um componente.
