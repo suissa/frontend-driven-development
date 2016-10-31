@@ -31,7 +31,25 @@ Então podemos converter elas da seguinte forma:
 ```
 
 ```js
-var validate = require('atom-cpf-validate')
-var atom = document.querySelector('.atom-cpf')
+const validate = require('atom-cpf-validate')
+const atom = document.querySelector('.atom-cpf')
 atom.addEventListener('blur', validate)
+```
+
+Agora vamos pensar em como criar um JSON que contenha essas informações para ser a configuração do nosso átomo:
+
+```js
+const name = 'cpf'
+const type = String
+const event = 'blur'
+const validate = require('atom-cpf-validate')
+
+config = {
+  name,
+  type,
+  validator: {
+    validate,
+    event
+  }
+}
 ```
