@@ -1,6 +1,17 @@
 # frontend-driven-development
 
-Vamos do front até o banco e vice-versa
+Vamos do front até o banco e vice-versa.
+
+Irei mostrar como tirar um padrão a partir do frontend até o banco de dados implementando uma API REST de CRUD, ou seja, iremos gerar 
+as 4 funções básicas para um módulo/molécula que será nosso `form` e seus `input`s serão nossos componentes/átomos.  
+
+Para isso iremos mapear os tipos de dados entre as 2 partes e depois criar 1 JSON de configuração para esse módulo, para que o mesmo possa ser gerado para qualquer framework.
+
+Por exemplo o mesmo componente de CPF poderá ser gerado tanto para os frameworks de frontend (ng1, ng2, vue, react, etc) como para os "ORMs" de banco (mongoose, sequelize, bookshelf).
+
+E nesse meio de campo iremos gerar os *Services, Controllers e Componentes* que consumirão a API REST do backend, a qual terá todas as funcionalidades do CRUD chegando até o seu banco de dados escolhido.
+
+![whaaat](https://media.giphy.com/media/3otPoUbZNPjqWefNgQ/giphy.gif)
 
 ## Tipos de dados
 
