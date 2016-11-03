@@ -90,4 +90,3 @@ config = {
 }
 ```
 
-Porém precisamos definir quais são os possíveis estados de um componente.
