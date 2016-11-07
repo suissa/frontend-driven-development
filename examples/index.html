@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Frontend Driven Development</title>
+  <script src="https://rawgit.com/nucleun/nucleun-model/master/dist/nucleun-model.min.js"></script>
+  <style>
+    .success {
+      border: 2px solid green;
+    }
+    .error {
+      border: 2px solid red;
+    }
+  </style>
+</head>
+<body>
+
+  <pre><code id="model-preview"></code></pre>
+
+  <form name="formUF" novalidate>
+    <label>UF
+      <select name="uf" onchange="changeValue()">
+        <option value="">Selecione um UF...</option>
+        <option>AC</option>
+        <option>PR</option>
+        <option selected>SP</option>
+      </select>
+    </label>
+  </form>
+
+  <script>
+    const modelPreview = document.getElementById('model-preview');
+    const selectUF = document.querySelector('[name=uf]');
+
+    const { Model } = Nucleun;
+
+    const schema = [
+      {
+        key: 'uf',
+        type: 'isSP',
+        label: 'UF',
+        required: true
+      }
+    ];
+
+    const model = new Model(schema);
+
+
+    model.validator.use('isSP', (field) => {
+      if (field.value === 'SP') {
+        return true;
+      }
+
+      return new Error('Você não selecionou SP caraleo!');
+    });
+
+    function changeValue() {
+      model.schema[0].value = selectUF.value;
+
+      modelPreview.textContent = '';
+
+      model.validate()
+        .then((err) => {
+          if (err.validationErrors && err.validationErrors.uf) {
+            modelPreview.textContent = JSON.stringify(err.validationErrors.uf, null, 2);
+          }
+        })
+        .catch((err) => {
+          console.log('catch', err)
+        });
+    }
+
+
+    changeValue();
+
+
+  </script>
+
+</body>
+</html>
