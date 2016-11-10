@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Frontend Driven Development</title>
+  <script src="https://rawgit.com/nucleun/nucleun-model/master/dist/nucleun-model.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.min.js"></script>
+  <style>
+    .success {
+      border: 2px solid green;
+    }
+    .error {
+      border: 2px solid red;
+    }
+  </style>
+</head>
+<body>
+
+  <div ng-app="app">
+    <!-- <div ng-include="'app/user/molecula.tpl.html'" ng-controller="UserController as SaveController"></div> -->
+    <div ng-include="'app/user/atomo-list.tpl.html'" ng-controller="UserController as ListController"></div>
+  </div>
+
+  <script src="app/user/user-service.js"></script>
+  <script src="app/user/user-ctrl.js"></script>
+  <script src="app/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<div>
+  <form role="form" name="SaveForm" ng-submit="SaveController.save()" novalidate>
+    <div class="row">
+      <div ng-repeat="column in columns | filter:formFilter | orderBy:'order'" ng-class="['col-md-'+column.gridSize]" class="form-group">
+        <div ng-switch on="column.type">
+          <div ng-switch-when="select">
+            <select class="form-control" ng-options="opt.id as opt.title for opt in column.options" ng-model="column.key" name="{{column.key}}">
+              <option value="">Selecione {{column.title}}</option>
+            </select>
+          </div>
+          <div ng-switch-when="textarea">
+            <textarea class="form-control" placeholder="{{column.title}}" ng-model="column.key" name="{{column.key}}"></textarea>
+          </div>
+          <div ng-switch-default>
+            <input type="{{column.type}}" class="form-control input-md" placeholder="{{column.title}}" ng-model="column.key" name="{{column.key}}">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-actions">
+      <div class="row">
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
