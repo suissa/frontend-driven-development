@@ -1,0 +1,26 @@
+<div class="portlet box" ng-init="ListController.refreshList()">
+  <div class="portlet-title">
+    <div class="tools">
+      <a href="" ng-click="ListController.refreshList()" class="reload">
+      </a>
+    </div>
+  </div>
+  <div class="portlet-body">
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th ng-repeat="column in columns | filter:columnFilter | orderBy:'order'" ng-class="column.type" ng-bind="column.title"></th>
+          <th class="actions"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in list">
+          <td ng-repeat="column in columns | filter:columnFilter | orderBy:'order'" ng-class="column.type" ng-bind="item[column.key]"></td>
+          <td class="actions">
+            <a href class="btn red btn-xs" ng-click="ListController.remove(item)">X</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
